@@ -7,7 +7,6 @@ const qiniuToken = require('./model/qiniu-uptoken/router');
 /**
  * clear empty param in req.query
  */
-
 router.use((req, res, next) => {
   const propNames = Object.getOwnPropertyNames(req.query);
   for (let i = 0, len = propNames.length; i < len; i++) {
