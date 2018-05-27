@@ -5,12 +5,12 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   account: { type: String, required: true, unique: true },
   nickname: { type: String, required: true },
-  phone: { type: String, required: true },
+  phone: { type: String, required: false },
   password: { type: String, required: true },
   token: { type: String },
   role: {
-    type: { type: String, default: 'admin' },
-    name: { type: String }
+    type: { type: String, default: 'normal' },
+    name: { type: String, default: '普通用户' }
   },
   status: { type: Number, enum: [0, 1], default: 1 },
   meta: {

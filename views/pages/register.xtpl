@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>注册</title>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<style>
+			#type {
+				margin-top:30px;
+				height: 50px;
+				color: #8d8d8d;
+				cursor: pointer;
+			}
+			
+			#type .active {
+				color: #337ab7;
+				border-bottom: 3px solid #337ab7;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="center-block" style="max-width: 400px;margin-top: 100px;">
+				<h2 class="text-center text-primary">澳房问答</h2>
+				<h4 class="text-center text-primary">与世界分享你的知识、经验和见解</h4>
+				<div id="type" class="row center-block text-center">
+					<div class="col-xs-6 active" onclick="javascript:window.location.href='/user/signup'">
+						<h5>注册</h5>
+					</div>
+					<div class="col-xs-6" onclick="javascript:window.location.href='/user/signin'">
+						<h5>登录</h5>
+					</div>
+				</div>
+				<div class="form-group">
+					<input id="signup_nickname" type="text" name="name" class="form-control" onkeyup="signup.data.nickname = this.value" placeholder="姓名" required="required">
+				</div>
+				<div class="form-group">
+					<input id="login_phone" onblur="signup.check('email', this.value)" onkeyup="signup.data.account = this.value" type="email" name="email" class="form-control" placeholder="邮箱" required="required">
+				</div>
+				<div class="form-group">
+					<input id="login_password" type="password" name="password" onkeyup="signup.data.password = this.value" class="form-control" placeholder="密码" required="required">
+				</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="signup.submit()">注册</button>
+				<h5 class="text-center">点击【注册】按钮，即代表你同意<a href="#">《用户协议》</a></h5>
+			</div>
+		</div>
+		<!-- /container -->
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			var signup = {
+				data: {
+					nickname: '',
+					account: '',
+					password: '',
+					oldAccount: '',
+					valid: function() {
+						if (!signup.data.nickname.length || !signup.data.account.length || !signup.data.password.length) return '数据不能为空！'
+						if (!(signup.data.password.length > 5 && /\d/.test(signup.data.password) && /[a-z]/.test(signup.data.password) && /[A-Z]/.test(signup.data.password))) return '密码格式不正确，不能少于6位，必须包含至少一个大写字母、小写字母、数字'
+						if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(signup.data.account)) return '邮箱格式不正确！'
+						return true
+					}
+				},
+				check: function(field, val) {
+					if (val === signup.data.oldAccount) return false
+					if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(val)) return false
+
+					$.post('/user/check', { account: val }, function(res) {
+						signup.data.oldAccount = val
+						if (res.code) {
+							alert(res.msg)
+						}
+					})
+				},
+				submit: function() {
+					var result = signup.data.valid()
+					if (result !== true) {
+						return alert(result)
+					}
+					$.post('/user/signup', signup.data, function(res) {
+						if (res.code) {
+							return alert(res.msg)
+						}
+						window.location = '/user/signin'
+					})
+				}
+			}
+		</script>
+	</body>
+
+</html>

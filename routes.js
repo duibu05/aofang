@@ -3,6 +3,7 @@ const router = new Router();
 
 const user = require('./model/user/router');
 const qiniuToken = require('./model/qiniu-uptoken/router');
+const passportConf = require('./config-passport');
 
 /**
  * clear empty param in req.query
@@ -18,16 +19,28 @@ router.use((req, res, next) => {
   next();
 })
 
-router.route('/api/v1').get((req, res) => {
-  res.json({ message: 'Welcome to aofang-server API!' });
+/**
+ * auth middleware
+ */
+/* router.use((req, res, next) => {
+  if (req.app.get('noNeedAuthPath').has(req.path)) return next()
+  console.log('req.isAuthenticated():', req.isAuthenticated())
+  if (!req.isAuthenticated()) {
+    return res.redirect('/user/signin');
+  }
+  next()
+}) */
+
+router.route('/').get(passportConf.isAuthenticated, (req, res) => {
+  res.render('index', { })
 });
 
-router.route('/api/v1/*').options((req, res) => {
-  res.status(204).end();
-});
+router.route('/find').get(passportConf.isAuthenticated, (req, res) => {
+  res.render('find', { })
+})
 
-router.use('/api/v1/users?', user);
-router.use('/api/v1/qiniu-uptokens?', qiniuToken);
+router.use('/users?', user);
+router.use('/qiniu-uptokens?', qiniuToken);
 
 router.use((err, req, res, next) => {
   res.status(200).json({

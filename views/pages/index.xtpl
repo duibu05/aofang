@@ -1,0 +1,177 @@
+{{extend ("../layout")}}
+
+{{#block ("title")}}
+	<title>首页</title>
+{{/block}}
+
+{{#block ("content")}}
+<div class="panel panel-default">
+	<div class="panel-body">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-question">提问</button>
+		<button type="button" class="btn btn-primary" onclick="javascript:window.location.href='index/answer.html'">回答</button>
+		<button type="button" class="btn btn-primary" onclick="javascript:window.location.href='index/write_article.html'">写文章</button>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-idea">写想法</button>
+		<button type="button" class="btn btn-primary pull-right" onclick="javascript:window.location.href='index/draft.html'">草稿</button>
+	</div>
+</div>
+<div id="theid-100" class="panel panel-default">
+	<div class="panel-body">
+		<button type="button" class="close" data-toggle="tooltip" data-placement="bottom" title="不感兴趣" onclick="closeid(100)"><span aria-hidden="true">&times;</span></button>
+		<h6 class="modal-title info-form">来自话题：医学</h6>
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object info-avatar" src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg">
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">用户昵称</h4>
+				<p style="color: #8D8D8D;">个性签名个性签名个性签名</p>
+			</div>
+		</div>
+		<h4>问题问题问题问题问题问题问题问题问题问题问题问题问题</h4>
+		<div class="info-content">
+			<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+		</div>
+		<div class="info-content2" style="display: none;">
+			<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+		</div>
+		<div>
+			<h6 style="color: #8D8D8D;">编辑于 昨天 19:27</h6>
+		</div>
+		<div style="margin-top: 20px;">
+			<button type="button" class="btn btn-primary">顶</button>
+			<button type="button" class="btn btn-primary">踩</button>
+			<button type="button" class="btn btn-link">23条评论</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">分享<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#">复制链接</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">Facebook</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">微信扫一扫</a>
+					</li>
+					<li>
+						<img src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg" class="img-thumbnail" style="width: 100%;">
+					</li>
+				</ul>
+			</div>
+			<button type="button" class="btn btn-default">收藏</button>
+			<button type="button" class="btn btn-default">感谢</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#">没有帮助</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">举报</a>
+					</li>
+				</ul>
+			</div>
+			<button id="theread-100" type="button" class="btn btn-link pull-right" onclick="read(100)">[阅读原文]</button>
+		</div>
+	</div>
+</div>
+{{/block}}
+
+{{#block ("modal")}}
+<div class="modal fade" id="add-question" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">写下你的问题 <small>描述精确的问题更易得到答案</small></h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<textarea class="form-control" rows="2" placeholder="问题标题"></textarea>
+				</div>
+				<div class="form-group">
+					<input type="text" data-role="tagsinput" class="form-control" placeholder="添加话题">
+				</div>
+				<div class="form-group">
+					<label>问题描述（可选）</label>
+					<div class="pull-right">
+						<button type="button" class="btn btn-link" style="padding: 0px;">字体加粗</button>
+						<button type="button" class="btn btn-link" style="padding: 0px;">上传图片</button>
+						<button type="button" class="btn btn-link" style="padding: 0px;">上传视频</button>
+					</div>
+					<textarea class="form-control" rows="4" placeholder="问题背景、条件等详细信息"></textarea>
+				</div>
+				<div class="checkbox">
+					<label><input type="checkbox" value="1">匿名提问</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary">提交问题</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="add-idea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">写想法</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<textarea class="form-control" rows="5" placeholder="分享你得想法"></textarea>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary pull-left">上传图片</button>
+				<button type="button" class="btn btn-primary pull-left">上传视频</button>
+				<button type="button" class="btn btn-primary">发布</button>
+			</div>
+		</div>
+	</div>
+</div>
+{{/block}}
+
+{{#block ("rightSb")}}
+	{{include ("../template/right-sb1")}}
+{{/block}}
+
+{{#block ("js")}}
+<!-- Bootstrap tag标签 -->
+<script src="http://cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+{{/block}}
+
+{{#block ("inlineJs")}}
+<script>
+	$("nav ").headroom({
+		offset: 50
+	});
+</script>
+<script>
+	$(function() {
+		$("[data-toggle='tooltip']").tooltip();
+	});
+
+	function read(id) {
+		if($('#theread-' + id).html() == "[阅读原文]") {
+			$('#theid-' + id + ' .info-content').css("display", "none");
+			$('#theid-' + id + ' .info-content2').css("display", "inline");
+			$('#theread-' + id).html("[收起]");
+		} else {
+			$('#theid-' + id + ' .info-content').css("display", "-webkit-box");
+			$('#theid-' + id + ' .info-content2').css("display", "none");
+			$('#theread-' + id).html("[阅读原文]");
+		}
+	}
+
+	function closeid(id) {
+		$('#theid-' + id).css("display", "none");
+	}
+</script>
+{{/block}}

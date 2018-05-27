@@ -2,6 +2,8 @@ const controller = require('./controller');
 const Router = require('express').Router;
 const router = new Router();
 
+const { body } = require('express-validator/check')
+
 const role = require('../role/router');
 
 router.use('/roles?', role);
@@ -14,7 +16,19 @@ router.route('/check')
   .post((...args) => controller.check(...args));
 
 router.route('/signin')
+  .get((req, res) => res.render('login', { }))
   .post((...args) => controller.signin(...args));
+
+router.route('/signup')
+  .get((req, res) => res.render('register', {}))
+  .post([
+    body('account').exists().withMessage('账户为必填项！'),
+    body('account').isEmail().withMessage('账户必须为邮箱格式！'),
+    body('password').isLength({ min: 6 }).withMessage('密码不能少于6位！'),
+    body('password').matches(/\d/).withMessage('密码必须包含数字！'),
+    body('password').matches(/[a-z]/).withMessage('密码必须包含一个小写英文字母！'),
+    body('password').matches(/[A-Z]/).withMessage('密码必须包含一个大写英文字母！'),
+  ], (...args) => controller.create(...args))
 
 router.route('/signout')
   .post((...args) => controller.signout(...args));

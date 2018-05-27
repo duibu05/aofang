@@ -1,29 +1,38 @@
+const bluebird = require('bluebird');
+const crypto = bluebird.promisifyAll(require('crypto'));
+const _ = require('lodash');
+const passport = require('passport');
+const { validationResult } = require('express-validator/check');
 const Controller = require('../../lib/controller');
 const userFacade = require('./facade');
 const roleFacade = require('../role/facade')
-const uuid = require('uuid/v4')
-const _ = require('lodash')
 
 class UserController extends Controller {
   signin(req, res, next) {
+    const self = this
     this.facade.findOne({ account: req.body.account })
       .then(result => {
         if (result) {
           result.comparePassword(req.body.password, (err, isMatch) => {
             if (err) next(err);
             if (isMatch) {
-              result.token = uuid();
-              this.facade.update({ _id: result._id }, { token: result.token })
-                .then(updated => {
-                  if(updated.n && updated.nModified) {
-                    return res.json({
-                      code: 0,
-                      msg: 'ok',
-                      data: { token: result.token },
-                    });
-                  }
-                })
-              
+              // passport
+              passport.authenticate('local', (err, user, info) => {
+                if (err) return next(err);
+                if (!user) return next(info);
+
+                req.logIn(user, (err) => {
+                  if (err) return next(err);
+
+                  return res.json({
+                    code: 0,
+                    msg: 'ok',
+                    data: {
+                      returnTo: req.session.returnTo || '/'
+                    }
+                  })
+                });
+              })(req, res, next);
             } else {
               return res.json({
                 code: -1,
@@ -59,6 +68,11 @@ class UserController extends Controller {
           msg: '用户已存在！'
         })
       }
+
+      return res.json({
+        code: 0,
+        msg: 'ok!'
+      })
     })
     .catch(err => {
       return res.json({
@@ -69,6 +83,15 @@ class UserController extends Controller {
   }
 
   create(req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.json({
+        code: -1,
+        msg: `bad request: ${errors.array()[0].msg}`,
+        data: errors.array()
+      });
+    }
+
     this.facade.findOne({ account: req.body.account })
       .then(user => {
         if(user) {

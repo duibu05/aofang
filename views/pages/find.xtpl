@@ -1,0 +1,149 @@
+{{extend ("../layout")}}
+
+{{#block ("title")}}
+	<title>发现</title>
+{{/block}}
+
+{{#block ("content")}}
+<div style="min-height: 30px;">
+	<h4 class="pull-left">编辑推荐</h4>
+	<a class="pull-right" style="color: #8D8D8D;" href="find/recommend.html">
+		<h4>更多推荐</h4>
+	</a>
+</div>
+<hr />
+<ul class="list-group">
+	<div class="list-group-item">
+		<h4>标题标题标题标题标题标题</h4>
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object info-avatar" src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg">
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">用户昵称</h4>
+				<p style="color: #8D8D8D;">个性签名个性签名个性签名</p>
+				<div>
+					<p style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;">问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#" class="list-group-item">
+		<span class="pull-right">文章</span> 标题标题标题标题标题标题
+	</a>
+	<a href="#" class="list-group-item">
+		<span class="pull-right">问答</span> 标题标题标题标题标题标题
+	</a>
+	<a href="#" class="list-group-item">
+		<span class="pull-right">问答</span> 标题标题标题标题标题标题
+	</a>
+	<a href="#" class="list-group-item">
+		<span class="pull-right">问答</span> 标题标题标题标题标题标题
+	</a>
+</ul>
+<div style="min-height: 30px;">
+	<h4 class="pull-left">热门内容</h4>
+</div>
+<hr />
+<div id="theid-100" class="panel panel-default">
+	<div class="panel-body">
+		<button type="button" class="close" data-toggle="tooltip" data-placement="bottom" title="不敢兴趣" onclick="closeid(100)"><span aria-hidden="true">&times;</span></button>
+		<h6 class="modal-title info-form">来自话题：医学</h6>
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object info-avatar" src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg">
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">用户昵称</h4>
+				<p style="color: #8D8D8D;">个性签名个性签名个性签名</p>
+			</div>
+		</div>
+		<h4>问题问题问题问题问题问题问题问题问题问题问题问题问题</h4>
+		<div class="info-content">
+			<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+		</div>
+		<div class="info-content2" style="display: none;">
+			<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+		</div>
+		<div>
+			<h6 style="color: #8D8D8D;">编辑于 昨天 19:27</h6>
+		</div>
+		<div style="margin-top: 20px;">
+			<button type="button" class="btn btn-primary">顶55</button>
+			<button type="button" class="btn btn-primary">踩</button>
+			<button type="button" class="btn btn-link">23条评论</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">分享<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#">复制链接</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">Facebook</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">微信扫一扫</a>
+					</li>
+					<li>
+						<img src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg" class="img-thumbnail" style="width: 100%;">
+					</li>
+				</ul>
+			</div>
+			<button type="button" class="btn btn-default">收藏</button>
+			<button type="button" class="btn btn-default">感谢</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#">没有帮助</a>
+					</li>
+					<li role="separator" class="divider"></li>
+					<li>
+						<a href="#">举报</a>
+					</li>
+				</ul>
+			</div>
+			<button id="theread-100" type="button" class="btn btn-link pull-right" onclick="read(100)">[阅读原文]</button>
+		</div>
+	</div>
+</div>
+{{/block}}
+
+{{#block ("rightSb")}}
+	{{include ("../template/right-sb1")}}
+{{/block}}
+
+{{#block ("inlineJs")}}
+<script>
+	$("nav ").headroom({
+		offset: 50
+	});
+</script>
+<script>
+	$(function() {
+		$("[data-toggle='tooltip']").tooltip();
+	});
+
+	function read(id) {
+		if($('#theread-' + id).html() == "[阅读原文]") {
+			$('#theid-' + id + ' .info-content').css("display", "none");
+			$('#theid-' + id + ' .info-content2').css("display", "inline");
+			$('#theread-' + id).html("[收起]");
+		} else {
+			$('#theid-' + id + ' .info-content').css("display", "-webkit-box");
+			$('#theid-' + id + ' .info-content2').css("display", "none");
+			$('#theread-' + id).html("[阅读原文]");
+		}
+	}
+
+	function closeid(id) {
+		$('#theid-' + id).css("display", "none");
+	}
+</script>
+{{/block}}

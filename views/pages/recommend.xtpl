@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>更多推荐</title>
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Bootstrap tag标签 -->
+		<link href="http://cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
+		<link rel="stylesheet" href="//assets.teamun.com/aofang/main_d7a86fa2ebd45c2aa25869e91820f4cb.css" />
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+					<a class="navbar-brand" href="../index.html">
+						<img alt="澳房问答" style="height: 44px;margin-top: -13px;" src="//assets.teamun.com/aofang/logo_e8b0d9db85a38cfd7c941a7543273917.png">
+					</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="../index.html">首页</a>
+						</li>
+						<li>
+							<a href="../find.html">发现</a>
+						</li>
+						<li>
+							<a href="../topic.html">话题</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+						<button type="submit" class="btn btn-default">提问</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="../login/register.html">注册</a>
+						</li>
+						<li>
+							<a href="../login/login.html">登录</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="nav-fill" style="width: 100%;height: 50px;background-color:#222;"></div>
+		<div class="container" style="margin-top: 20px;">
+			<div class="row">
+				<div class="col-xs-8">
+					<div style="min-height: 30px;">
+						<h4 class="pull-left">编辑推荐</h4>
+					</div>
+					<hr /><div id="theid-100" class="panel panel-default">
+						<div class="panel-body">
+							<button type="button" class="close" data-toggle="tooltip" data-placement="bottom" title="不敢兴趣" onclick="closeid(100)"><span aria-hidden="true">&times;</span></button>
+							<h6 class="modal-title info-form">来自话题：医学</h6>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object info-avatar" src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">用户昵称</h4>
+									<p style="color: #8D8D8D;">个性签名个性签名个性签名</p>
+								</div>
+							</div>
+							<h4>问题问题问题问题问题问题问题问题问题问题问题问题问题</h4>
+							<div class="info-content">
+								<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+							</div>
+							<div class="info-content2" style="display: none;">
+								<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+							</div>
+							<div>
+								<h6 style="color: #8D8D8D;">编辑于 昨天 19:27</h6>
+							</div>
+							<div style="margin-top: 20px;">
+								<button type="button" class="btn btn-primary">顶55</button>
+								<button type="button" class="btn btn-primary">踩</button>
+								<button type="button" class="btn btn-link">23条评论</button>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">分享<span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">复制链接</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">Facebook</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">微信扫一扫</a>
+										</li>
+										<li>
+											<img src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg" class="img-thumbnail" style="width: 100%;">
+										</li>
+									</ul>
+								</div>
+								<button type="button" class="btn btn-default">收藏</button>
+								<button type="button" class="btn btn-default">感谢</button>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">没有帮助</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">举报</a>
+										</li>
+									</ul>
+								</div>
+								<button id="theread-100" type="button" class="btn btn-link pull-right" onclick="read(100)">[阅读原文]</button>
+							</div>
+						</div>
+					</div>
+					<div id="theid-101" class="panel panel-default">
+						<div class="panel-body">
+							<button type="button" class="close" data-toggle="tooltip" data-placement="bottom" title="不敢兴趣" onclick="closeid(101)"><span aria-hidden="true">&times;</span></button>
+							<h6 class="modal-title info-form">来自话题：医学</h6>
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object info-avatar" src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">用户昵称</h4>
+									<p style="color: #8D8D8D;">个性签名个性签名个性签名</p>
+								</div>
+							</div>
+							<h4>问题问题问题问题问题问题问题问题问题问题问题问题问题</h4>
+							<div class="info-content">
+								<div class="row">
+									<div class="col-xs-4">
+										<img src="//assets.teamun.com/aofang/16X9_958a54a096eefa31fb9551538a121411.png" class="img-responsive">
+									</div>
+									<div class="col-xs-8">
+										<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+									</div>
+								</div>
+							</div>
+							<div class="info-content2" style="display: none;">
+								<img src="//assets.teamun.com/aofang/16X9_958a54a096eefa31fb9551538a121411.png" class="img-responsive">
+								<p>问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答问题回答</p>
+							</div>
+							<div>
+								<h6 style="color: #8D8D8D;">编辑于 昨天 19:27</h6>
+							</div>
+							<div style="margin-top: 20px;">
+								<button type="button" class="btn btn-primary">顶</button>
+								<button type="button" class="btn btn-primary">踩</button>
+								<button type="button" class="btn btn-link">23条评论</button>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">分享<span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">复制链接</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">Facebook</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">微信扫一扫</a>
+										</li>
+										<li>
+											<img src="//assets.teamun.com/aofang/w230_166043d27a3a1465904e99ac2f14d61e.jpg" class="img-thumbnail" style="width: 100%;">
+										</li>
+									</ul>
+								</div>
+								<button type="button" class="btn btn-default">收藏</button>
+								<button type="button" class="btn btn-default">感谢</button>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="#">没有帮助</a>
+										</li>
+										<li role="separator" class="divider"></li>
+										<li>
+											<a href="#">举报</a>
+										</li>
+									</ul>
+								</div>
+								<button id="theread-101" type="button" class="btn btn-link pull-right" onclick="read(101)">[阅读原文]</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<img src="//assets.teamun.com/aofang/16X9_958a54a096eefa31fb9551538a121411.png" class="img-responsive" style="margin-bottom: 20px;">
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="//assets.teamun.com/aofang/main_1e43e7ccb182b47c02394a172508bb29.js" ></script>
+		<!--动态导航条-->
+		<script type="text/javascript" src="//assets.teamun.com/aofang/jQuery.headroom_0b724c9f3150170e3b2648c9aa75f85d.js"></script>
+		<script type="text/javascript" src="//assets.teamun.com/aofang/headroom.min_21c410f27ba915d451f55fefe47d00ad.js"></script>
+		<script>
+			$("nav ").headroom({
+				offset: 50
+			});
+		</script>
+		<script>
+			$(function() {
+				$("[data-toggle='tooltip']").tooltip();
+			});
+
+			function read(id) {
+				if($('#theread-' + id).html() == "[阅读原文]") {
+					$('#theid-' + id + ' .info-content').css("display", "none");
+					$('#theid-' + id + ' .info-content2').css("display", "inline");
+					$('#theread-' + id).html("[收起]");
+				} else {
+					$('#theid-' + id + ' .info-content').css("display", "-webkit-box");
+					$('#theid-' + id + ' .info-content2').css("display", "none");
+					$('#theread-' + id).html("[阅读原文]");
+				}
+			}
+
+			function closeid(id) {
+				$('#theid-' + id).css("display", "none");
+			}
+		</script>
+	</body>
+
+</html>

@@ -22,7 +22,7 @@ dotenv.load({ path: '.env.aofang' });
 /**
  * Passport configuration.
  */
-const passportConfig = require('./config/passport');
+const passportConfig = require('./config-passport');
 
 const config = require('./config');
 const routes = require('./routes');
@@ -43,8 +43,9 @@ mongoose.connection.on('error', (err) => {
 /**
  * Express configuration.
  */
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views', 'pages'));
 app.set('view engine', 'xtpl');
+app.set('noNeedAuthPath', new Set(['/user/signin', '/user/signup']));
 
 app.use(expressStatusMonitor());
 
@@ -76,8 +77,8 @@ app.use(flash());
  */
 app.use((req, res, next) => {
   if (!req.user &&
-      req.path !== '/login' &&
-      req.path !== '/signup' &&
+      req.path.indexOf('/signin') !== -1 &&
+      req.path.indexOf('/signup') !== -1 &&
       !req.path.match(/^\/auth/) &&
       !req.path.match(/\./)) {
     req.session.returnTo = req.path;
@@ -85,6 +86,7 @@ app.use((req, res, next) => {
       req.path === '/account') {
     req.session.returnTo = req.path;
   }
+  
   next();
 });
 
