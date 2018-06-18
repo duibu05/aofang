@@ -2,8 +2,8 @@
 	"signin": "Iniciar sesión",
 	"signup": "Registrarte",
 	"signout": "Salir",
-	"signinTitle": "signinTitle",
-	"signupSubTitle": "signupSubTitle",
+	"websiteSloganTitle": "websiteSloganTitle",
+	"websiteSloganSubTitle": "websiteSloganSubTitle",
 	"resetPwd": "resetPwd",
 	"contact": "contact",
 	"snsLogin": "snsLogin"

@@ -1,10 +1,37 @@
 {
+  "websiteSloganTitle": "澳房问答",
+  "websiteSloganSubTitle": "与世界分享你的知识、经验和见解",
+  "requestFail": "请求异常！",
+  "nicknameInputPlaceholder": "昵称",
+	"accountInputPlaceholder": "邮箱",
+	"pwdInputPlaceholder": "密码",
   "signin": "登录",
-  "signinTitle": "澳房问答",
-  "signupSubTitle": "与世界分享你的知识、经验和见解",
-  "resetPwd": "重置密码",
-  "contact": "联系客服",
+  "invalidPwdOrAccount": "账号不存在或者密码错误！",
+	"signinByWechat": "微信登录",
+  
+  "accountAndPwdMustBeFilled": "邮箱或密码不能为空！",
+	"invalidPwd": "密码格式不正确，不能少于6位，必须包含至少一个大写字母、小写字母、数字！",
+  "invalidEmail": "邮箱格式不正确！",
+  
+	"resetPwd": "重置密码",
+	"contact": "联系客服",
   "snsLogin": "社交账号登录",
+  
   "signup": "注册",
-  "signout": "退出"
+  "nicknameIsRequired": "昵称为必填项！",
+  "accountIsRequired": "账户为必填项！",
+  "accountMustBeEmail": "账户必须为邮箱格式！",
+  "pwdLengthMustMoreThan6": "密码不能少于6位！",
+  "pwdMustContainsNumber": "密码必须包含数字！",
+  "pwdMustContainsLowerCaseCharactor": "密码必须包含一个小写英文字母！",
+  "pwdMustContainsUpperCaseCharactor": "密码必须包含一个大写英文字母！",
+  "userExists": "邮箱已被注册！",
+	"signupSucess": "注册成功，点击确定立即去登录！",
+	"signupTips": "点击【注册】按钮，即代表你同意",
+	"signupProtocol": "《用户协议》",
+	"signout": "退出",
+  "signupSuccess": "注册成功，点击确定立即去登录！",
+  
+  "resetPwdErr": "修改失败！",
+  "invalidOldPwd": "旧密码不正确！"
 }

@@ -85,7 +85,7 @@ app.use((req, res, next) => {
     extension: '.json',
     queryParameter: 'lang',
     cookie: 'locale',
-    register: res,
+    register: req,
     defaultLocale: 'en',
     api: {
       '__': 't',
@@ -93,10 +93,9 @@ app.use((req, res, next) => {
     }
   });
 
-  console.log(req.query.lang, req.cookies['locale'])
-
   if(req.query.lang) {
     locale = req.query.lang
+    res.cookie('locale',locale, { httpOnly: true });
   } else if(req.cookies['locale']){ //客户端可以通过修改cookie进行语言切换控制
     locale = req.cookies['locale'];
   } else if(req.acceptsLanguages()){
@@ -107,7 +106,7 @@ app.use((req, res, next) => {
     locale = 'en';
   }
   // 设置i18n对这个请求所使用的语言
-  i18n.setLocale(req, locale);
+  res.setLocale(req, locale);
   next();
 });
 
@@ -115,16 +114,20 @@ app.use((req, res, next) => {
  * After successful login, redirect back to the intended page
  */
 app.use((req, res, next) => {
+  if(req.user && (
+    req.path === '/user/signin' ||
+    req.path === '/user/signup')) {
+    return res.redirect('/');
+  }
+  
   if (!req.user &&
-    req.path !== '/signin' &&
-    req.path !== '/signup' &&
+    req.path !== '/user/signin' &&
+    req.path !== '/user/check' &&
+    req.path !== '/user/signup' &&
     !req.path.match(/^\/auth/) &&
     !req.path.match(/\./)) {
     req.session.returnTo = req.path;
-  } else if (req.user &&
-      req.path === '/account') {
-    req.session.returnTo = req.path;
-  }
+  } 
 
   next();
 });

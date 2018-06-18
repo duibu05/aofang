@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>注册</title>
+		<title>{{t('signup')}}</title>
 		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<style>
@@ -26,27 +26,27 @@
 	<body>
 		<div class="container">
 			<div class="center-block" style="max-width: 400px;margin-top: 100px;">
-				<h2 class="text-center text-primary">澳房问答</h2>
-				<h4 class="text-center text-primary">与世界分享你的知识、经验和见解</h4>
+				<h2 class="text-center text-primary">{{t('websiteSloganTitle')}}</h2>
+				<h4 class="text-center text-primary">{{t('websiteSloganSubTitle')}}</h4>
 				<div id="type" class="row center-block text-center">
 					<div class="col-xs-6 active" onclick="javascript:window.location.href='/user/signup'">
-						<h5>注册</h5>
+						<h5>{{t('signup')}}</h5>
 					</div>
 					<div class="col-xs-6" onclick="javascript:window.location.href='/user/signin'">
-						<h5>登录</h5>
+						<h5>{{t('signin')}}</h5>
 					</div>
 				</div>
 				<div class="form-group">
-					<input id="signup_nickname" type="text" name="name" class="form-control" onkeyup="signup.data.nickname = this.value" placeholder="姓名" required="required">
+					<input id="signup_nickname" type="text" name="name" class="form-control" onkeyup="signup.data.nickname = this.value" placeholder="{{t('nicknameInputPlaceholder')}}" required="required">
 				</div>
 				<div class="form-group">
-					<input id="login_phone" onblur="signup.check('email', this.value)" onkeyup="signup.data.account = this.value" type="email" name="email" class="form-control" placeholder="邮箱" required="required">
+					<input id="login_phone" onblur="signup.check('email', this.value)" onkeyup="signup.data.account = this.value" type="email" name="email" class="form-control" placeholder="{{t('accountInputPlaceholder')}}" required="required">
 				</div>
 				<div class="form-group">
-					<input id="login_password" type="password" name="password" onkeyup="signup.data.password = this.value" class="form-control" placeholder="密码" required="required">
+					<input id="login_password" type="password" name="password" onkeyup="signup.data.password = this.value" class="form-control" placeholder="{{t('pwdInputPlaceholder')}}" required="required">
 				</div>
-				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="signup.submit()">注册</button>
-				<h5 class="text-center">点击【注册】按钮，即代表你同意<a href="#">《用户协议》</a></h5>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="signup.submit()">{{t('signup')}}</button>
+				<h5 class="text-center">{{t('signupTips')}}<a href="#">{{t('signupProtocol')}}</a></h5>
 			</div>
 		</div>
 		<!-- /container -->
@@ -61,11 +61,12 @@
 					account: '',
 					password: '',
 					oldAccount: '',
-					valid: function() {
-						if (!signup.data.nickname.length || !signup.data.account.length || !signup.data.password.length) return '数据不能为空！'
-						if (!(signup.data.password.length > 5 && /\d/.test(signup.data.password) && /[a-z]/.test(signup.data.password) && /[A-Z]/.test(signup.data.password))) return '密码格式不正确，不能少于6位，必须包含至少一个大写字母、小写字母、数字'
-						if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(signup.data.account)) return '邮箱格式不正确！'
-						return true
+					checkErr: function() {
+						if (!signup.data.nickname.length) return '{{t('nicknameIsRequired')}}'
+						if (!signup.data.account.length || !signup.data.password.length) return '{{t('accountAndPwdMustBeFilled')}}'
+						if (!(signup.data.password.length > 5 && /\d/.test(signup.data.password) && /[a-z]/.test(signup.data.password) && /[A-Z]/.test(signup.data.password))) return '{{t('invalidPwd')}}'
+						if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(signup.data.account)) return '{{t('invalidEmail')}}'
+						return false
 					}
 				},
 				check: function(field, val) {
@@ -80,14 +81,17 @@
 					})
 				},
 				submit: function() {
-					var result = signup.data.valid()
-					if (result !== true) {
-						return alert(result)
+					var err = signup.data.checkErr()
+					if (err) {
+						return alert(err)
 					}
+
 					$.post('/user/signup', signup.data, function(res) {
 						if (res.code) {
 							return alert(res.msg)
 						}
+
+						alert('{{t('signupSuccess')}}')
 						window.location = '/user/signin'
 					})
 				}

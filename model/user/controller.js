@@ -8,16 +8,7 @@ const userFacade = require('./facade');
 const roleFacade = require('../role/facade')
 
 class UserController extends Controller {
-  renderSignInPage(req, res, next) {
-    if (req.user) {
-      return res.redirect('/');
-    }
-
-    res.render('login', { })
-  }
-
   signin(req, res, next) {
-    const self = this
     this.facade.findOne({ account: req.body.account })
       .then(result => {
         if (result) {
@@ -32,11 +23,14 @@ class UserController extends Controller {
                 req.logIn(user, (err) => {
                   if (err) return next(err);
 
-                  return res.json({
+                  const returnTo = req.session.returnTo
+                  req.session.returnTo = null
+
+                  res.json({
                     code: 0,
                     msg: 'ok',
                     data: {
-                      returnTo: req.session.returnTo || '/'
+                      returnTo: returnTo || '/'
                     }
                   })
                 });
@@ -44,14 +38,14 @@ class UserController extends Controller {
             } else {
               return res.json({
                 code: -1,
-                msg: '账号或密码错误！'
+                msg: req.t('invalidPwdOrAccount')
               });
             }
           });
         } else {
           return res.json({
             code: -1,
-            msg: '账号或密码错误！'
+            msg: req.t('invalidPwdOrAccount')
           });
         }
       })
@@ -68,7 +62,7 @@ class UserController extends Controller {
       if(user) {
         return res.json({
           code: -1,
-          msg: '用户已存在！'
+          msg: req.t('userExists')
         })
       }
 
@@ -80,7 +74,7 @@ class UserController extends Controller {
     .catch(err => {
       return res.json({
         code: -1,
-        msg: '请求异常！'
+        msg: req.t('requestFail')
       })
     })
   }
@@ -100,7 +94,7 @@ class UserController extends Controller {
         if(user) {
           return res.json({
             code: -1,
-            msg: '用户已存在！'
+            msg: req.t('userExists')
           })
         }
 
@@ -116,14 +110,14 @@ class UserController extends Controller {
           .catch(err => {
             return res.json({
               code: -1,
-              msg: `请求异常: ${err.message}`
+              msg: `${req.t('requestFail')}: ${err.message}`
             })
           })
       })
       .catch(err => {
         return res.json({
           code: -1,
-          msg: `请求异常: ${err.message}`
+          msg: `${req.t('requestFail')}: ${err.message}`
         })
       })
   }
@@ -145,8 +139,8 @@ class UserController extends Controller {
       req.body.token = '';
       this.facade.update({ _id: req.params.id }, req.body)
       .then((results) => {
-        if (results.n < 1) { return res.json({code: -1, msg: '无相应记录！'}); }
-        if (results.nModified < 1) { return res.json({code: -1, msg: '修改失败！'}); }
+        if (results.n < 1) { return res.json({code: -1, msg: req.t('resetPwdErr')}); }
+        if (results.nModified < 1) { return res.json({code: -1, msg: req.t('resetPwdErr')}); }
         return res.json({ code: 0, msg: 'ok' });
       })
       .catch(err => next(err));
@@ -166,7 +160,7 @@ class UserController extends Controller {
             } else {
               return res.json({
                 code: -1,
-                msg: '旧密码不正确！'
+                msg: req.t('invalidOldPwd')
               });
             }
           });
