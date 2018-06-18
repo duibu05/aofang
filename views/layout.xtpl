@@ -11,6 +11,21 @@
 		<!-- Bootstrap tag标签 -->
 		<link href="http://cdn.bootcss.com/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
 		<link rel="stylesheet" href="//assets.teamun.com/aofang/main_d7a86fa2ebd45c2aa25869e91820f4cb.css" />
+		<style type="text/css">
+			#userinfo {
+
+			}
+
+			#userinfo img {
+				width: 30px;
+				height: 30px;
+			}
+
+			#userinfo .dropdown-toggle{
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+		</style>
     {{{block ("inlineStyle")}}}
 	</head>
 

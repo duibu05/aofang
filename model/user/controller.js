@@ -8,6 +8,14 @@ const userFacade = require('./facade');
 const roleFacade = require('../role/facade')
 
 class UserController extends Controller {
+  renderSignInPage(req, res, next) {
+    if (req.user) {
+      return res.redirect('/');
+    }
+
+    res.render('login', { })
+  }
+
   signin(req, res, next) {
     const self = this
     this.facade.findOne({ account: req.body.account })
@@ -50,13 +58,8 @@ class UserController extends Controller {
   }
 
   signout(req, res, next) {
-    this.facade.update({ token: '' })
-      .then(() => {
-        return res.json({
-          code: 0,
-          msg: 'ok'
-        })
-      })
+    req.logout();
+    res.redirect('/user/signin');
   }
 
   check(req, res, next) {

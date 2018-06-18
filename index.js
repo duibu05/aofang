@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const bluebird = require('bluebird');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 const dotenv = require('dotenv');
@@ -13,6 +14,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const expressStatusMonitor = require('express-status-monitor');
+const i18n = require("i18n");
 
 /**
  * Load environment variables from .env file to process.env, where API keys and passwords and so on are configured.
@@ -51,6 +53,8 @@ app.use(expressStatusMonitor());
 
 app.use(helmet());
 
+app.use(cookieParser());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -72,21 +76,56 @@ app.use(passport.session());
 
 app.use(flash());
 
+app.use((req, res, next) => {
+  const languages = [ 'en', 'es-ES', 'ja-JP', 'ko-KR', 'zh-CN' ]
+  var locale;
+  //配置i18n
+  i18n.configure({
+    directory: __dirname + '/locales',
+    extension: '.json',
+    queryParameter: 'lang',
+    cookie: 'locale',
+    register: res,
+    defaultLocale: 'en',
+    api: {
+      '__': 't',
+      '__n': 'tn'
+    }
+  });
+
+  console.log(req.query.lang, req.cookies['locale'])
+
+  if(req.query.lang) {
+    locale = req.query.lang
+  } else if(req.cookies['locale']){ //客户端可以通过修改cookie进行语言切换控制
+    locale = req.cookies['locale'];
+  } else if(req.acceptsLanguages()){
+    locale = req.acceptsLanguages()[0];
+  }
+
+  if(!~languages.indexOf(locale)) {
+    locale = 'en';
+  }
+  // 设置i18n对这个请求所使用的语言
+  i18n.setLocale(req, locale);
+  next();
+});
+
 /**
  * After successful login, redirect back to the intended page
  */
 app.use((req, res, next) => {
   if (!req.user &&
-      req.path.indexOf('/signin') !== -1 &&
-      req.path.indexOf('/signup') !== -1 &&
-      !req.path.match(/^\/auth/) &&
-      !req.path.match(/\./)) {
+    req.path !== '/signin' &&
+    req.path !== '/signup' &&
+    !req.path.match(/^\/auth/) &&
+    !req.path.match(/\./)) {
     req.session.returnTo = req.path;
   } else if (req.user &&
       req.path === '/account') {
     req.session.returnTo = req.path;
   }
-  
+
   next();
 });
 

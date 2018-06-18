@@ -16,7 +16,7 @@ router.route('/check')
   .post((...args) => controller.check(...args));
 
 router.route('/signin')
-  .get((req, res) => res.render('login', { }))
+  .get((...args) => controller.renderSignInPage(...args))
   .post((...args) => controller.signin(...args));
 
 router.route('/signup')
@@ -31,7 +31,7 @@ router.route('/signup')
   ], (...args) => controller.create(...args))
 
 router.route('/signout')
-  .post((...args) => controller.signout(...args));
+  .get((...args) => controller.signout(...args));
 
 router.route('/reset-password/:id')
   .put((...args) => controller.resetPwd(...args))

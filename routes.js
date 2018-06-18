@@ -32,7 +32,7 @@ router.use((req, res, next) => {
 }) */
 
 router.route('/').get(passportConf.isAuthenticated, (req, res) => {
-  res.render('index', { })
+  res.render('index', { user: req.user })
 });
 
 router.route('/find').get(passportConf.isAuthenticated, (req, res) => {

@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>登录</title>
+		<title>{{t('signin')}}</title>
 		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<style>
@@ -43,34 +43,34 @@
 	<body>
 		<div class="container">
 			<div class="center-block" style="max-width: 400px;margin-top: 100px;">
-				<h2 class="text-center text-primary">澳房问答</h2>
-				<h4 class="text-center text-primary">与世界分享你的知识、经验和见解</h4>
+				<h2 class="text-center text-primary">{{t('signinTitle')}}</h2>
+				<h4 class="text-center text-primary">{{t('signupSubTitle')}}</h4>
 				<div id="type" class="row center-block text-center">
 					<div class="col-xs-6" onclick="javascript:window.location.href='/user/signup'">
-						<h5>注册</h5>
+						<h5>{{t('signup')}}</h5>
 					</div>
 					<div class="col-xs-6 active" onclick="javascript:window.location.href='/user/signin'">
-						<h5>登录</h5>
+						<h5>{{t('signin')}}</h5>
 					</div>
 				</div>
 				<div class="form-group">
-					<input id="login_phone" onkeyup="signin.data.account = this.value" type="email" name="email" class="form-control" placeholder="邮箱" required="required">
+					<input id="login_phone" onkeyup="signin.keyUpHandler(event, 'account', this.value)" type="email" name="email" class="form-control" placeholder="邮箱" required="required">
 				</div>
 				<div class="form-group">
-					<input id="login_password" type="password" onkeyup="signin.data.password = this.value" name="password" class="form-control" placeholder="密码" required="required">
+					<input id="login_password" type="password" onkeyup="signin.keyUpHandler(event, 'password', this.value)" name="password" class="form-control" placeholder="密码" required="required">
 				</div>
-				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="signin.submit()">登录</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="signin.submit()">{{t('signin')}}</button>
 				<div>
 					<div class="pull-left">
-						<h5><a href="#">重置密码</a></h5>
+						<h5><a href="#">{{t('resetPwd')}}</a></h5>
 					</div>
 					<div class="pull-right">
-						<h5>联系客服</h5>
+						<h5>{{t('contact')}}</h5>
 					</div>
 				</div>
 				<div class="txt-hr" style="margin-top: 25px;">
 					<span style="white-space:pre;">  </span><span class="line"></span>
-					<span style="white-space:pre;">  </span><span class="txt">社交账号登录</span>
+					<span style="white-space:pre;">  </span><span class="txt">{{t('snsLogin')}}</span>
 					<span style="white-space:pre;">  </span><span class="line"></span>
 				</div>
 				<div class="row">
@@ -114,6 +114,21 @@
 						if (!(signin.data.password.length > 5 && /\d/.test(signin.data.password) && /[a-z]/.test(signin.data.password) && /[A-Z]/.test(signin.data.password))) return '密码格式不正确，不能少于6位，必须包含至少一个大写字母、小写字母、数字'
 						if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(signin.data.account)) return '邮箱格式不正确！'
 						return true
+					}
+				},
+				keyUpHandler(e, field, value) {
+					this.data[field] = value
+					// handler Enter key
+					e = e || window.event
+					var code = e.keyCode || e.which;
+					if(code == 13) { //Enter keycode
+						if ('account' === field) {
+							$('#login_password').focus()
+						}
+
+						if ('password' === field && this.data.valid()) {
+							this.submit()
+						}
 					}
 				},
 				submit: function() {

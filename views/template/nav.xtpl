@@ -30,6 +30,30 @@
         <button type="submit" class="btn btn-default">搜索</button>
         <button type="submit" class="btn btn-default">提问</button>
       </form>
+      {{#if (user)}}
+      <ul id="userinfo" class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+            <img src="https://gravatar.com/avatar/53dbebc3a62584aa79b528132d0dbd06?s=60&amp;d=retro"> <span>{{user.nickname}}</span><i class="caret"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/account/{{user._id}}">我的主页</a>
+            </li>
+            <li>
+              <a href="/account/{{user._id}}">私信</a>
+            </li>
+            <li>
+              <a href="/account/{{user._id}}">设置</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="user/signout">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      {{else}}
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="user/signup">注册</a>
@@ -38,6 +62,7 @@
           <a href="user/signin">登录</a>
         </li>
       </ul>
+      {{/if}}
     </div>
   </div>
 </nav>

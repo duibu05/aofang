@@ -1,0 +1,10 @@
+{
+  "signinTitle": "signinTitle",
+  "signupSubTitle": "signupSubTitle",
+  "signup": "Sign Up",
+  "signin": "Log In",
+  "signout": "Log Out",
+  "resetPwd": "resetPwd",
+  "contact": "contact",
+  "snsLogin": "snsLogin"
+}
